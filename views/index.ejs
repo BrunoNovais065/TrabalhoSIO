@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .title {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+      }
+      .box {
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        margin: 20px;
+        transition: all 0.3s ease;
+      }
+      .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .box:nth-child(even) {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="title mt-5">Reports</div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mt-5">
+            <label for="companySelect">Select Company:</label>
+            <select class="form-control" id="companySelect">
+              <option value="krackentech" selected>KrackenTech</option>
+              <option value="coisasteck">Eletrotech</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box bg-white">Compras por produto</div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">Compras por fornecedor</div>
+        </div>
+        <div class="col-md-4">
+          <div class="box bg-white">Vendas por cliente (total liquido)</div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">Vendas por produto</div>
+        </div>
+        <div class="col-md-4">
+          <div class="box bg-white">Vendas por cliente (total com iva)</div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">Vendas anuais de cada cliente</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
