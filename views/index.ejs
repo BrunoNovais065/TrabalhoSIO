@@ -12,6 +12,7 @@
       body {
         background-color: #f8f9fa;
       }
+
       .title {
         font-size: 32px;
         font-weight: bold;
@@ -19,6 +20,7 @@
         color: #333;
         text-align: center;
       }
+
       .box {
         height: 200px;
         border-radius: 10px;
@@ -27,11 +29,16 @@
         text-align: center;
         margin: 20px;
         transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
+
       .box:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
+
       .box:nth-child(even) {
         background-color: #f0f0f0;
       }
@@ -55,22 +62,46 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <div class="box bg-white">Compras por produto</div>
+          <div class="box bg-white">
+            <span>Compras por produto</span>
+            <input type="text" class="form-control" placeholder="Enter text" />
+            <button class="btn btn-primary">View</button>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="box">Compras por fornecedor</div>
+          <div class="box">
+            <span>Compras por fornecedor</span>
+            <input type="text" class="form-control" placeholder="Enter text" />
+            <button class="btn btn-primary">View</button>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="box bg-white">Vendas por cliente (total liquido)</div>
+          <div class="box bg-white">
+            <span>Vendas por cliente (total liquido)</span>
+            <input type="text" class="form-control" placeholder="Enter text" />
+            <button class="btn btn-primary">View</button>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="box">Vendas por produto</div>
+          <div class="box">
+            <span>Vendas por produto</span>
+            <input type="text" class="form-control" placeholder="Enter text" />
+            <button class="btn btn-primary">View</button>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="box bg-white">Vendas por cliente (total com iva)</div>
+          <div class="box bg-white">
+            <span>Vendas por cliente (total com iva)</span>
+            <input type="text" class="form-control" placeholder="Enter text" />
+            <button class="btn btn-primary">View</button>
+          </div>
         </div>
         <div class="col-md-4">
-          <div class="box">Vendas anuais de cada cliente</div>
+          <div class="box">
+            <span>Vendas anuais de cada cliente</span>
+            <input type="text" class="form-control" placeholder="Enter text" />
+            <button class="btn btn-primary">View</button>
+          </div>
         </div>
       </div>
     </div>
