@@ -22,7 +22,7 @@
       }
 
       .box {
-        height: 200px;
+        height: 250px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
@@ -230,20 +230,11 @@
         <div class="col-md-6">
           <div class="title mt-5">Reports</div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group mt-5">
-            <label for="companySelect">Select Company:</label>
-            <select class="form-control" id="companySelect">
-              <option value="krackentech" selected>KrackenTech</option>
-              <option value="eletrotech">Eletrotech</option>
-            </select>
-          </div>
-        </div>
       </div>
       <div class="row">
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory1" method="GET">
+            <form action="/directory1" method="POST">
               <span>Compras por produto</span>
               <input
                 type="text"
@@ -252,6 +243,11 @@
                 name="input1"
                 id="input1"
               />
+              <select name="company" id="company" class="form-control">
+                <option value="krackentech" selected>KrackenTech</option>
+                <option value="eletrotech">Eletrotech</option>
+                <!-- Add more company options as needed -->
+              </select>
               <div class="voltage-button">
                 <button type="submit">View</button>
                 <svg
@@ -315,7 +311,7 @@
         </div>
         <div class="col-md-4">
           <div class="box">
-            <form action="/directory2" method="GET">
+            <form action="/directory2" method="post">
               <span>Compras por fornecedor</span>
               <input
                 type="text"
@@ -324,6 +320,11 @@
                 name="input2"
                 id="input2"
               />
+              <select name="company" id="company" class="form-control">
+                <option value="krackentech" selected>KrackenTech</option>
+                <option value="eletrotech">Eletrotech</option>
+                <!-- Add more company options as needed -->
+              </select>
               <div class="voltage-button">
                 <button type="submit">View</button>
                 <svg
@@ -389,7 +390,7 @@
         </div>
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory3" method="GET">
+            <form action="/directory3" method="post">
               <span>Vendas por cliente (total liquido)</span>
               <input
                 type="text"
@@ -398,6 +399,11 @@
                 name="input3"
                 id="input3"
               />
+              <select name="company" id="company" class="form-control">
+                <option value="krackentech" selected>KrackenTech</option>
+                <option value="eletrotech">Eletrotech</option>
+                <!-- Add more company options as needed -->
+              </select>
               <div class="voltage-button">
                 <button type="submit">View</button>
                 <svg
@@ -463,7 +469,7 @@
         </div>
         <div class="col-md-4">
           <div class="box">
-            <form action="/directory4" method="GET">
+            <form action="/directory4" method="post">
               <span>Vendas por produto</span>
               <input
                 type="text"
@@ -472,6 +478,11 @@
                 name="input4"
                 id="input4"
               />
+              <select name="company" id="company" class="form-control">
+                <option value="krackentech" selected>KrackenTech</option>
+                <option value="eletrotech">Eletrotech</option>
+                <!-- Add more company options as needed -->
+              </select>
               <div class="voltage-button">
                 <button type="submit">View</button>
                 <svg
@@ -537,7 +548,7 @@
         </div>
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory5" method="GET">
+            <form action="/directory5" method="POST">
               <span>Vendas por cliente (total com iva)</span>
               <input
                 type="text"
@@ -546,6 +557,11 @@
                 name="input5"
                 id="input5"
               />
+              <select name="company" id="company" class="form-control">
+                <option value="krackentech" selected>KrackenTech</option>
+                <option value="eletrotech">Eletrotech</option>
+                <!-- Add more company options as needed -->
+              </select>
               <div class="voltage-button">
                 <button type="submit">View</button>
                 <svg
@@ -611,7 +627,7 @@
         </div>
         <div class="col-md-4">
           <div class="box">
-            <form action="/directory6" method="GET">
+            <form action="/directory6" method="post">
               <span>Vendas anuais de cada cliente</span>
               <input
                 type="text"
@@ -620,6 +636,11 @@
                 name="input6"
                 id="input6"
               />
+              <select name="company" id="company" class="form-control">
+                <option value="krackentech">KrackenTech</option>
+                <option value="eletrotech">Eletrotech</option>
+                <!-- Add more company options as needed -->
+              </select>
               <div class="voltage-button">
                 <button type="submit">View</button>
                 <svg
