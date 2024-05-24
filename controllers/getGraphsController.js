@@ -30,7 +30,7 @@ GraphController.getGraphsdiagram1 = function(req, res) {
 };
 
 GraphController.getGraphsdiagram2 = function(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('graph1', { graphData: req.body.company});
 };
 
 GraphController.getGraphsdiagram3 = function(req, res) {
