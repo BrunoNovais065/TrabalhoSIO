@@ -26,27 +26,27 @@ con.connect(function(err) {
 
 GraphController.getGraphsdiagram1 = function(req, res) {
     console.log(req.body);
-    res.render('index', { title: 'Express' });
-};
-
-GraphController.getGraphsdiagram2 = function(req, res) {
     res.render('graph1', { graphData: req.body.company});
 };
 
+GraphController.getGraphsdiagram2 = function(req, res) {
+    res.render('graph2', { graphData: req.body.company});
+};
+
 GraphController.getGraphsdiagram3 = function(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('graph3', { graphData: req.body.company});
 };
 
 GraphController.getGraphsdiagram4 = function(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('graph4', { graphData: req.body.company});
 };
 
 GraphController.getGraphsdiagram5 = function(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('graph5', { graphData: req.body.company});
 };
 
 GraphController.getGraphsdiagram6 = function(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('graph6', { graphData: req.body.company});
 };
 
 module.exports = GraphController;
