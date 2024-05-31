@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      canvas {
+        max-width: 80%;
+        max-height: 80%;
+        margin: auto;
+        display: block;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .back-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="back-button">Go back</button>
+    <canvas id="myChart" width="2000" height="1100"></canvas>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: [
+              "<%= graphData[0].name %>",
+              "<%= graphData[1].name %>",
+              "<%= graphData[2].name %>",
+              "<%= graphData[3].name %>",
+              "<%= graphData[4].name %>",
+              "<%= graphData[5].name %>",
+              "<%= graphData[6].name %>",
+              "<%= graphData[7].name %>",
+              "<%= graphData[8].name %>",
+              "<%= graphData[9].name %>",
+            ],
+            datasets: [
+              {
+                label: "# vendas por cliente",
+                data: [
+                  "<%= graphData[0].value %>",
+                  "<%= graphData[1].value %>",
+                  "<%= graphData[2].value %>",
+                  "<%= graphData[3].value %>",
+                  "<%= graphData[4].value %>",
+                  "<%= graphData[5].value %>",
+                  "<%= graphData[6].value %>",
+                  "<%= graphData[7].value %>",
+                  "<%= graphData[8].value %>",
+                  "<%= graphData[9].value %>",
+                ],
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.2)",
+                  "rgba(54, 162, 235, 0.2)",
+                  "rgba(255, 206, 86, 0.2)",
+                  "rgba(75, 192, 192, 0.2)",
+                  "rgba(153, 102, 255, 0.2)",
+                  "rgba(255, 159, 64, 0.2)",
+                ],
+                borderColor: [
+                  "rgba(255, 99, 132, 1)",
+                  "rgba(54, 162, 235, 1)",
+                  "rgba(255, 206, 86, 1)",
+                  "rgba(75, 192, 192, 1)",
+                  "rgba(153, 102, 255, 1)",
+                  "rgba(255, 159, 64, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        // Add event listener to the back button
+        document
+          .querySelector(".back-button")
+          .addEventListener("click", function () {
+            // Navigate back to "/"
+            window.location.href = "/";
+          });
+      });
+    </script>
+  </body>
+</html>

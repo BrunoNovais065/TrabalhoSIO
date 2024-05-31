@@ -58,19 +58,10 @@
               "<%= graphData[5].name %>",
               "<%= graphData[6].name %>",
               "<%= graphData[7].name %>",
-              "<%= graphData[8].name %>",
-              "<%= graphData[9].name %>",
-              "<%= graphData[10].name %>",
-              "<%= graphData[11].name %>",
-              "<%= graphData[12].name %>",
-              "<%= graphData[13].name %>",
-              "<%= graphData[14].name %>",
-              "<%= graphData[15].name %>",
-              "<%= graphData[16].name %>",
             ],
             datasets: [
               {
-                label: "# Vendas anuais por trimestre",
+                label: "# net total por fornecedor",
                 data: [
                   "<%= graphData[0].value %>",
                   "<%= graphData[1].value %>",
@@ -80,15 +71,6 @@
                   "<%= graphData[5].value %>",
                   "<%= graphData[6].value %>",
                   "<%= graphData[7].value %>",
-                  "<%= graphData[8].value %>",
-                  "<%= graphData[9].value %>",
-                  "<%= graphData[10].value %>",
-                  "<%= graphData[11].value %>",
-                  "<%= graphData[12].value %>",
-                  "<%= graphData[13].value %>",
-                  "<%= graphData[14].value %>",
-                  "<%= graphData[15].value %>",
-                  "<%= graphData[16].value %>",
                 ],
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.2)",
@@ -114,6 +96,7 @@
             scales: {
               y: {
                 beginAtZero: true,
+                max: 50000,
               },
             },
           },
