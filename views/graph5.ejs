@@ -50,17 +50,24 @@
           type: "bar",
           data: {
             labels: [
-              "<%= graphData %>",
-              "Blue",
-              "Yellow",
-              "Green",
-              "Purple",
-              "Orange",
+              "<%= graphData[0].name %>",
+              "<%= graphData[1].name %>",
+              "<%= graphData[2].name %>",
+              "<%= graphData[3].name %>",
+              "<%= graphData[4].name %>",
+              "<%= graphData[5].name %>",
             ],
             datasets: [
               {
-                label: "# of Votes",
-                data: [12, 19, 3, 5, 2, 3],
+                label: "# Vendas por Distrito",
+                data: [
+                  "<%= graphData[0].value %>",
+                  "<%= graphData[1].value %>",
+                  "<%= graphData[2].value %>",
+                  "<%= graphData[3].value %>",
+                  "<%= graphData[4].value %>",
+                  "<%= graphData[5].value %>",
+                ],
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.2)",
                   "rgba(54, 162, 235, 0.2)",
