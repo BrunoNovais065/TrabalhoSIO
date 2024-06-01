@@ -411,8 +411,22 @@ sql.query(connectionString, queryy, (err, result) => {
     }
         const Data = [];
 
-        result[40].s_key = result[40].s_key.split(';')[0];
-
+        Data.push({
+            name: result[32].s_key,
+            value: result[32].net_total
+        });
+        Data.push({
+            name: result[33].s_key,
+            value: result[33].net_total
+        });
+        Data.push({
+            name: result[34].s_key,
+            value: result[34].net_total
+        });
+        Data.push({
+            name: result[35].s_key,
+            value: result[35].net_total
+        });
         Data.push({
             name: result[36].s_key,
             value: result[36].net_total
@@ -420,22 +434,6 @@ sql.query(connectionString, queryy, (err, result) => {
         Data.push({
             name: result[37].s_key,
             value: result[37].net_total
-        });
-        Data.push({
-            name: result[38].s_key,
-            value: result[38].net_total
-        });
-        Data.push({
-            name: result[39].s_key,
-            value: result[39].net_total
-        });
-        Data.push({
-            name: result[40].s_key,
-            value: result[40].net_total
-        });
-        Data.push({
-            name: result[41].s_key,
-            value: result[41].net_total
         });
 
         res.render('graph5', { graphData: Data});
@@ -459,8 +457,6 @@ sql.query(connectionString, queryy, (err, result) => {
     }
         const Data = [];
 
-        result[40].s_key = result[40].s_key.split(';')[0];
-        result[46].s_key = result[46].s_key.split(';')[0];
 
         Data.push({
             name: result[38].s_key,
