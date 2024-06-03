@@ -253,7 +253,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory1" method="POST">
+            <form action="/otheryear<%= year %>" method="GET">
               <span>Compras por produto</span>
 
               <select name="company" id="company" class="form-control">
@@ -262,7 +262,7 @@
                 <!-- Add more company options as needed -->
               </select>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendAlert()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -324,7 +324,7 @@
         </div>
         <div class="col-md-4">
           <div class="box">
-            <form action="/directory2" method="post">
+            <form action="/otheryear<%= year %>" method="GET">
               <span>Compras por fornecedor</span>
 
               <select name="company" id="company" class="form-control">
@@ -333,7 +333,7 @@
                 <!-- Add more company options as needed -->
               </select>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendAlert()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -397,7 +397,7 @@
         </div>
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory3" method="post">
+            <form action="/otheryear<%= year %>" method="GET">
               <span>Vendas por cliente</span>
 
               <select name="company" id="company" class="form-control">
@@ -406,7 +406,7 @@
                 <!-- Add more company options as needed -->
               </select>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendAlert()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -470,7 +470,7 @@
         </div>
         <div class="col-md-4">
           <div class="box">
-            <form action="/directory4" method="post">
+            <form action="/otheryear<%= year %>" method="GET">
               <span>Vendas por produto</span>
               <select name="company" id="company" class="form-control">
                 <option value="krackentech" selected>KrackenTech</option>
@@ -478,7 +478,7 @@
                 <!-- Add more company options as needed -->
               </select>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendAlert()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -542,7 +542,7 @@
         </div>
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory5" method="POST">
+            <form action="/otheryear<%= year %>" method="GET">
               <span>Vendas por Distrito</span>
               <select name="company" id="company" class="form-control">
                 <option value="krackentech" selected>KrackenTech</option>
@@ -550,7 +550,7 @@
                 <!-- Add more company options as needed -->
               </select>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendAlert()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -614,7 +614,7 @@
         </div>
         <div class="col-md-4">
           <div class="box">
-            <form action="/directory6" method="post">
+            <form action="/otheryear<%= year %>" method="GET">
               <span>Vendas anuais por trimestre</span>
               <select name="company" id="company" class="form-control">
                 <option value="krackentech">KrackenTech</option>
@@ -622,7 +622,7 @@
                 <!-- Add more company options as needed -->
               </select>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendAlert()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -694,6 +694,11 @@
         var selectedYear = document.getElementById("yearSelect").value;
         window.location.href = "/otheryear" + selectedYear;
       }
+    </script>
+    <script>
+        function sendAlert() {
+            alert("There is no data for this year. Please select another year.");
+        }
     </script>
   </body>
 </html>
