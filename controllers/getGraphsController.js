@@ -525,7 +525,7 @@ sql.query(connectionString, queryy, (err, result) => {
         value: row.net_total
         }));
 
-        res.render('graph6', { graphData: Data});
+        res.render('newgraph6', { graphData: Data});
     }
     );
     }
@@ -548,7 +548,7 @@ sql.query(connectionString, queryy, (err, result) => {
         value: row.net_total
         }));
 
-        res.render('graph6', { graphData: Data});
+        res.render('newgraph6', { graphData: Data});
     }
     );
     }
