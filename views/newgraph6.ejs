@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .chart-container {
+        width: 30%;
+        text-align: center;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .back-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="back-button">Go back</button>
+    <div class="chart-container">
+      <p
+        style="
+          font-family: Arial, sans-serif;
+          font-size: 20px;
+          color: #333;
+          text-align: center;
+          padding: 20px;
+          background-color: #f9f9f9;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+        "
+      >
+        A receita total da empresa em 2023 foi de $500
+      </p>
+    </div>
+    <div class="chart-container">
+      <canvas id="chart2" width="200" height="200"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="chart3" width="200" height="200"></canvas>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Data for the three pie charts
+        var data1 = {
+          labels: ["Red", "Blue", "Yellow"],
+          datasets: [
+            {
+              data: [300, 50, 100],
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+            },
+          ],
+        };
+
+        var data2 = {
+          labels: ["Green", "Purple", "Orange"],
+          datasets: [
+            {
+              data: [200, 100, 150],
+              backgroundColor: ["#2E8B57", "#8A2BE2", "#FFA500"],
+            },
+          ],
+        };
+
+        var data3 = {
+          labels: [
+            "Cyan",
+            "Magenta",
+            "Lime",
+            "Light Red",
+            "Light Blue",
+            "Light Green",
+            "Light Cyan",
+            "Light Magenta",
+            "Light Yellow",
+            "Dark Red",
+            "Dark Blue",
+            "Dark Green",
+          ],
+          datasets: [
+            {
+              data: [150, 100, 250, 50, 100, 150, 200, 250, 300, 50, 100, 150],
+              backgroundColor: [
+                "#00FFFF",
+                "#FF00FF",
+                "#00FF00",
+                "#FF0000",
+                "#0000FF",
+                "#00FF00",
+                "#00FFFF",
+                "#FF00FF",
+                "#FFFF00",
+                "#8B0000",
+                "#00008B",
+                "#008B00",
+              ],
+            },
+          ],
+        };
+
+        // Get the canvas elements
+        //var ctx1 = document.getElementById("chart1").getContext("2d");
+        var ctx2 = document.getElementById("chart2").getContext("2d");
+        var ctx3 = document.getElementById("chart3").getContext("2d");
+
+        // Create the pie charts
+
+        var chart2 = new Chart(ctx2, {
+          type: "pie",
+          data: data2,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: "A receita por cada trimestre em 2023",
+              },
+            },
+          },
+        });
+
+        var chart3 = new Chart(ctx3, {
+          type: "pie",
+          data: data3,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: "A receita por cada mês de cada trimestre em 2023",
+              },
+            },
+          },
+        });
+
+        // Add event listener to the back button
+        document
+          .querySelector(".back-button")
+          .addEventListener("click", function () {
+            // Navigate back to "/"
+            window.location.href = "/";
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -24,7 +24,452 @@ con.connect(function(err) {
 });
 */
 
+GraphController.getGraphsdiagram5Electroteck = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
 
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+
+    }
+};
+
+GraphController.getGraphsdiagram5KrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+
+    }
+};
+
+GraphController.getGraphsdiagram5PortugalElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5SpainElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q1Electrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q2Electrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q3Electrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q4Electrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5JanuaryElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5FebruaryElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5MarchElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5AprilElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5MayElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5JuneElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5JulyElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5AugustElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5SeptemberElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5OctoberElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5NovemberElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5DecemberElectrotech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5PortugalKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q1KrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q2KrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q3KrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5Q4KrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5JanuaryKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5FebruaryKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5MarchKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+GraphController.getGraphsdiagram5AprilKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5MayKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5JuneKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5JulyKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5AugustKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5SeptemberKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5OctoberKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5NovemberKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
+
+GraphController.getGraphsdiagram5DecemberKrackenTech = function(req, res) {
+    console.log(req.body);
+    if(req.body.company == "krackentech"){
+        console.log("krackentech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }else
+    {
+        console.log("eletrotech");
+        res.render('index', { title: 'Express' ,year: '2023'});
+    }
+};
 
 GraphController.getGraphsdiagram1 = function(req, res) {
     console.log(req.body);
@@ -227,7 +672,7 @@ sql.query(connectionString, queryy, (err, result) => {
             name: result[31].s_key,
             value: result[31].net_total
         });
-        res.render('graph3', { graphData: Data});
+        res.render('newgraph3', { graphData: Data});
 });
     }
     else{
@@ -436,7 +881,7 @@ sql.query(connectionString, queryy, (err, result) => {
             value: result[37].net_total
         });
 
-        res.render('graph5', { graphData: Data});
+        res.render('newgraph5', { graphData: Data});
     }
     );
     }
@@ -525,7 +970,7 @@ sql.query(connectionString, queryy, (err, result) => {
         value: row.net_total
         }));
 
-        res.render('graph6', { graphData: Data});
+        res.render('newgraph6', { graphData: Data});
     }
     );
     }
@@ -548,7 +993,7 @@ sql.query(connectionString, queryy, (err, result) => {
         value: row.net_total
         }));
 
-        res.render('graph6', { graphData: Data});
+        res.render('newgraph6', { graphData: Data});
     }
     );
     }
