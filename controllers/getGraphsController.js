@@ -1,13 +1,8 @@
-
 var GraphController = {};
 
-const sql = require('msnodesqlv8');
+const sql = require("msnodesqlv8");
 
-
-/*
-const sql = require("mysql");
-
-const con = sql.createConnection({
+/*const con = sql.createConnection({
     host: "192.168.1.106",
     user: "Bruno",
     password: "bruno200602",
@@ -21,982 +16,418 @@ con.connect(function(err) {
         if (err) throw err;
         console.log(result);
     });
-});
-*/
+});*/
 
-GraphController.getGraphsdiagram5Electroteck = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
+GraphController.getGraphsdiagram5 = function (req, res) {
 
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
+	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
-    }
+	let query = `SELECT * FROM facts AS f WHERE f.s_key LIKE '%${req.body.country}% '`
+	if (req.body.city != null) { query = query.concat(`AND f.s_key LIKE '%${req.body.city}%' `); }
+	if (req.body.trimester != null) {
+		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trimester}`);
+		if (req.body.month != null) { query = query.concat(";" + req.body.month); }
+		query = query.concat("|%'");
+	}
+
+	sql.query(connectionString, query, (err, result) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		const Data = result.map((row) => ({
+			name: row.s_key,
+			value: row.net_total,
+		}));
+
+		res.render("newgraph6", { graphData: Data });
+	});
+	
+	res.render("index", { title: "Express", year: "2023" });
 };
 
-GraphController.getGraphsdiagram5KrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
+GraphController.getGraphsdiagram1 = function (req, res) {
+	console.log(req.body);
+	if (req.body.company == "KrakenTech") {
+		console.log("KrakenTech");
 
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
+		const connectionString =
+			"server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-    }
-};
-
-GraphController.getGraphsdiagram5PortugalElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5SpainElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q1Electrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q2Electrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q3Electrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q4Electrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5JanuaryElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5FebruaryElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5MarchElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5AprilElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5MayElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5JuneElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5JulyElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5AugustElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5SeptemberElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5OctoberElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5NovemberElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5DecemberElectrotech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5PortugalKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q1KrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q2KrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q3KrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5Q4KrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5JanuaryKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5FebruaryKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5MarchKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-GraphController.getGraphsdiagram5AprilKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5MayKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5JuneKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5JulyKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5AugustKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5SeptemberKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5OctoberKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5NovemberKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram5DecemberKrackenTech = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }else
-    {
-        console.log("eletrotech");
-        res.render('index', { title: 'Express' ,year: '2023'});
-    }
-};
-
-GraphController.getGraphsdiagram1 = function(req, res) {
-    console.log(req.body);
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
-        
-        const connectionString = 'server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
-
-        const queryy = `
+		const queryy = `
         SELECT *
 FROM dbo.facts
 WHERE s_key LIKE '%SUPPLIER'
 ORDER BY CAST(SUBSTRING(s_key, 5, CHARINDEX(';', s_key) - 5) AS INT);
 `;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data = result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = result.map((row) => ({
+				name: row.s_key,
+				value: row.net_total,
+			}));
 
-        
-        for (i = 0; i < Data.length; i++) {
-            let match = Data[i].name.match(/\d+/);
-            //the name has the constructions of TECH1;SUPPLIER short it by number
-            Data[i].name = Data[i].name.split(';')[0];
-        }
-        
+			for (i = 0; i < Data.length; i++) {
+				let match = Data[i].name.match(/\d+/);
+				//the name has the constructions of TECH1;SUPPLIER short it by number
+				Data[i].name = Data[i].name.split(";")[0];
+			}
 
-        res.render('graph1', { graphData: Data});
-    });
-    }else{
-        console.log("eletrotech");
+			res.render("graph1", { graphData: Data });
+		});
+	} else {
+		console.log("eletrotech");
 
-        const connectionString = 'server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+		const connectionString =
+			"server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-        const queryy = `
+		const queryy = `
         SELECT *
 FROM dbo.facts
 WHERE s_key LIKE '%SUPPLIER'
 ORDER BY CAST(SUBSTRING(s_key, 5, CHARINDEX(';', s_key) - 5) AS INT);
 `;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data = result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = result.map((row) => ({
+				name: row.s_key,
+				value: row.net_total,
+			}));
 
-        
-        for (i = 0; i < Data.length; i++) {
-            let match = Data[i].name.match(/\d+/);
-            //the name has the constructions of TECH1;SUPPLIER short it by number
-            Data[i].name = Data[i].name.split(';')[0];
-        }
-        
+			for (i = 0; i < Data.length; i++) {
+				let match = Data[i].name.match(/\d+/);
+				//the name has the constructions of TECH1;SUPPLIER short it by number
+				Data[i].name = Data[i].name.split(";")[0];
+			}
 
-        res.render('graph1', { graphData: Data});
-
-    });
-    }
+			res.render("graph1", { graphData: Data });
+		});
+	}
 };
 
-GraphController.getGraphsdiagram2 = function(req, res) {
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
+GraphController.getGraphsdiagram2 = function (req, res) {
+	const connectionString =
+		`server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
-        const connectionString = 'server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+	const query = `SELECT * FROM dbo.facts WHERE s_key LIKE '%Fornecedor%' `;
+	if (req.body.trimester != null) {
+		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trimester}`);
+		if (req.body.month != null) { query = query.concat(";" + req.body.month); }
+		query = query.concat("|%'");
+	}
 
-        const queryy = `
-        SELECT *
-        FROM dbo.facts
-        WHERE s_key LIKE '%Fornecedor%';
-`;
+	sql.query(connectionString, query, (err, result) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		const Data = result.map((row) => ({
+			name: row.s_key,
+			value: row.net_total,
+		}));
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-        const Data = result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
+		//the data is divided by ; thake out the first element
+		for (i = 0; i < Data.length; i++) {
+			if (req.body.trimester != null) {
+				Data[i].name = Data[i].name.split("|")[1].split(";")[1];
+			} else {
+				Data[i].name = Data[i].name.split(";")[1];
+			}
+		}
 
-        //the data is divided by ; thake out the first element
-        for (i = 0; i < Data.length; i++) {
-            Data[i].name = Data[i].name.split(';')[1];
-        }
-        
-        res.render('graph2', { graphData: Data});
-    });
-    }else{
-        console.log("eletrotech");
-
-        const connectionString = 'server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
-
-        const queryy = `
-        SELECT *
-        FROM dbo.facts
-        WHERE s_key LIKE '%Fornecedor%';
-`;
-
-sql.query(connectionString, queryy, (err, result) => {
-
-    if (err) {
-      console.log(err);
-      return;
-    }
-        const Data = result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
-
-        //the data is divided by ; thake out the first element
-        for (i = 0; i < Data.length; i++) {
-            Data[i].name = Data[i].name.split(';')[1];
-        }
-        
-        res.render('graph2Electro', { graphData: Data});
-
-    });
-    }
+		res.render("graph2", { graphData: Data });
+	});
 };
 
-GraphController.getGraphsdiagram3 = function(req, res) {
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
+GraphController.getGraphsdiagram3 = function (req, res) {
+	const connectionString =
+		`server=.;Database=${req.body.company};Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
-        const connectionString = 'server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+	const queryy = `SELECT * FROM facts AS f WHERE f.s_key LIKE '%CLIENT%'`;
+	sql.query(connectionString, queryy, (err, result) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		const Data = result.map((row) => ({
+			name: row.s_key,
+			value: row.net_total,
+		}));
 
-        const queryy = `
-        select *
-from dbo.facts`;
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        console.log(result[17].s_key);
+		//the data is divided by ; thake out the first element
+		for (i = 0; i < Data.length; i++) {
+			if (req.body.trimester != null) {
+				Data[i].name = Data[i].name.split("|")[1].split(";")[1];
+			} else {
+				Data[i].name = Data[i].name.split(";")[1];
+			}
+		}
 
-        const Data = [];
-
-        result[17].s_key = result[17].s_key.split(';')[1];
-        result[18].s_key = result[18].s_key.split(';')[1];
-        result[19].s_key = result[19].s_key.split(';')[1];
-        result[20].s_key = result[20].s_key.split(';')[1];
-        result[23].s_key = result[23].s_key.split(';')[1];
-        result[25].s_key = result[25].s_key.split(';')[1];
-        result[27].s_key = result[27].s_key.split(';')[1];
-        result[29].s_key = result[29].s_key.split(';')[1];
-        result[30].s_key = result[30].s_key.split(';')[1];
-        result[31].s_key = result[31].s_key.split(';')[1];
-
-        Data.push({
-            name: result[17].s_key,
-            value: result[17].net_total
-        });
-        Data.push({
-            name: result[18].s_key,
-            value: result[18].net_total
-        });
-        Data.push({
-            name: result[19].s_key,
-            value: result[19].net_total
-        });
-        Data.push({
-            name: result[20].s_key,
-            value: result[20].net_total
-        });
-        Data.push({
-            name: result[23].s_key,
-            value: result[23].net_total
-        });
-        Data.push({
-            name: result[25].s_key,
-            value: result[25].net_total
-        });
-        Data.push({
-            name: result[27].s_key,
-            value: result[27].net_total
-        });
-        Data.push({
-            name: result[29].s_key,
-            value: result[29].net_total
-        });
-        Data.push({
-            name: result[30].s_key,
-            value: result[30].net_total
-        });
-        Data.push({
-            name: result[31].s_key,
-            value: result[31].net_total
-        });
-        res.render('newgraph3', { graphData: Data});
-});
-    }
-    else{
-        console.log("eletrotech");
-        const connectionString = 'server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
-
-        const queryy = `
-        select *
-from dbo.facts`;
-
-
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        console.log(result[17].s_key);
-
-        const Data = [];
-
-        result[17].s_key = result[17].s_key.split(';')[1];
-        result[18].s_key = result[18].s_key.split(';')[1];
-        result[20].s_key = result[20].s_key.split(';')[1];
-        result[22].s_key = result[22].s_key.split(';')[1];
-        result[24].s_key = result[24].s_key.split(';')[1];
-        result[26].s_key = result[26].s_key.split(';')[1];
-        result[27].s_key = result[27].s_key.split(';')[1];
-        result[29].s_key = result[29].s_key.split(';')[1];
-        result[31].s_key = result[31].s_key.split(';')[1];
-        result[33].s_key = result[33].s_key.split(';')[1];
-        result[34].s_key = result[34].s_key.split(';')[1];
-        result[35].s_key = result[35].s_key.split(';')[1];
-        result[37].s_key = result[37].s_key.split(';')[1];
-
-        Data.push({
-            name: result[17].s_key,
-            value: result[17].net_total
-        });
-        Data.push({
-            name: result[18].s_key,
-            value: result[18].net_total
-        });
-        Data.push({
-            name: result[20].s_key,
-            value: result[20].net_total
-        });
-        Data.push({
-            name: result[22].s_key,
-            value: result[22].net_total
-        });
-        Data.push({
-            name: result[24].s_key,
-            value: result[24].net_total
-        });
-        Data.push({
-            name: result[26].s_key,
-            value: result[26].net_total
-        });
-        Data.push({
-            name: result[27].s_key,
-            value: result[27].net_total
-        });
-        Data.push({
-            name: result[29].s_key,
-            value: result[29].net_total
-        });
-        Data.push({
-            name: result[31].s_key,
-            value: result[31].net_total
-        });
-        Data.push({
-            name: result[33].s_key,
-            value: result[33].net_total
-        });
-        Data.push({
-            name: result[34].s_key,
-            value: result[34].net_total
-        });
-        Data.push({
-            name: result[35].s_key,
-            value: result[35].net_total
-        });
-        Data.push({
-            name: result[37].s_key,
-            value: result[37].net_total
-        });
-
-        res.render('graph3Electro', { graphData: Data});
-});
-    }
+		res.render("graph3", { graphData: Data });
+	});
 };
 
-GraphController.getGraphsdiagram4 = function(req, res) {
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
+GraphController.getGraphsdiagram4 = function (req, res) {
+	if (req.body.company == "KrakenTech") {
+		console.log("KrakenTech");
 
-        
+		const connectionString =
+			"server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-        const connectionString = 'server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+		const queryy = `SELECT * FROM dbo.facts WHERE s_key LIKE '%SUPPLIER'
+				ORDER BY CAST(SUBSTRING(s_key, 5, CHARINDEX(';', s_key) - 5) AS INT);`;
 
-        const queryy = `
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = result.map((row) => ({
+				name: row.s_key,
+				value: row.net_total,
+			}));
+
+			for (i = 0; i < Data.length; i++) {
+				let match = Data[i].name.match(/\d+/);
+				//the name has the constructions of TECH1;SUPPLIER short it by number
+				Data[i].name = Data[i].name.split(";")[0];
+			}
+
+			res.render("graph4", { graphData: Data });
+		});
+	} else {
+		console.log("eletrotech");
+
+		const connectionString =
+			"server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
+
+		const queryy = `
         SELECT *
 FROM dbo.facts
 WHERE s_key LIKE '%SUPPLIER'
 ORDER BY CAST(SUBSTRING(s_key, 5, CHARINDEX(';', s_key) - 5) AS INT);
 `;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data = result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = result.map((row) => ({
+				name: row.s_key,
+				value: row.net_total,
+			}));
 
+			for (i = 0; i < Data.length; i++) {
+				let match = Data[i].name.match(/\d+/);
+				//the name has the constructions of TECH1;SUPPLIER short it by number
+				Data[i].name = Data[i].name.split(";")[0];
+			}
 
-        for (i = 0; i < Data.length; i++) {
-            let match = Data[i].name.match(/\d+/);
-            //the name has the constructions of TECH1;SUPPLIER short it by number
-            Data[i].name = Data[i].name.split(';')[0];
-        }
-
-        res.render('graph4', { graphData: Data});
-
-    }
-    );
-    }
-    else{
-        console.log("eletrotech");
-
-        const connectionString = 'server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
-
-        const queryy = `
-        SELECT *
-FROM dbo.facts
-WHERE s_key LIKE '%SUPPLIER'
-ORDER BY CAST(SUBSTRING(s_key, 5, CHARINDEX(';', s_key) - 5) AS INT);
-`;
-
-sql.query(connectionString, queryy, (err, result) => {
-
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data = result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
-
-
-        for (i = 0; i < Data.length; i++) {
-            let match = Data[i].name.match(/\d+/);
-            //the name has the constructions of TECH1;SUPPLIER short it by number
-            Data[i].name = Data[i].name.split(';')[0];
-        }
-
-        res.render('graph4', { graphData: Data});
-    }
-    );
-    }
+			res.render("graph4", { graphData: Data });
+		});
+	}
 };
 
-GraphController.getGraphsdiagram5 = function(req, res) {
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
+GraphController.getGraphsdiagram5 = function (req, res) {
+	if (req.body.company == "KrakenTech") {
+		console.log("KrakenTech");
 
-        const connectionString = 'server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+		const connectionString =
+			"server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-        const queryy = `
+		const queryy = `
         SELECT *
 FROM dbo.facts
 `;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data = [];
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = [];
 
-        Data.push({
-            name: result[32].s_key,
-            value: result[32].net_total
-        });
-        Data.push({
-            name: result[33].s_key,
-            value: result[33].net_total
-        });
-        Data.push({
-            name: result[34].s_key,
-            value: result[34].net_total
-        });
-        Data.push({
-            name: result[35].s_key,
-            value: result[35].net_total
-        });
-        Data.push({
-            name: result[36].s_key,
-            value: result[36].net_total
-        });
-        Data.push({
-            name: result[37].s_key,
-            value: result[37].net_total
-        });
+			Data.push({
+				name: result[32].s_key,
+				value: result[32].net_total,
+			});
+			Data.push({
+				name: result[33].s_key,
+				value: result[33].net_total,
+			});
+			Data.push({
+				name: result[34].s_key,
+				value: result[34].net_total,
+			});
+			Data.push({
+				name: result[35].s_key,
+				value: result[35].net_total,
+			});
+			Data.push({
+				name: result[36].s_key,
+				value: result[36].net_total,
+			});
+			Data.push({
+				name: result[37].s_key,
+				value: result[37].net_total,
+			});
 
-        res.render('newgraph5', { graphData: Data});
-    }
-    );
-    }
-    else{
-        console.log("eletrotech");
+			res.render("newgraph5", { graphData: Data });
+		});
+	} else {
+		console.log("eletrotech");
 
-        const connectionString = 'server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+		const connectionString =
+			"server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-        const queryy = `
-        SELECT *
-FROM dbo.facts
-`;
+		const queryy = `SELECT * FROM dbo.facts`;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data = [];
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = [];
 
-
-        Data.push({
-            name: result[38].s_key,
-            value: result[38].net_total
-        });
-        Data.push({
-            name: result[39].s_key,
-            value: result[39].net_total
-        });
-        Data.push({
-            name: result[40].s_key,
-            value: result[40].net_total
-        });
-        Data.push({
-            name: result[41].s_key,
-            value: result[41].net_total
-        });
-        Data.push({
-            name: result[42].s_key,
-            value: result[42].net_total
-        });
-        Data.push({
-            name: result[43].s_key,
-            value: result[43].net_total
-        });
-        Data.push({
-            name: result[44].s_key,
-            value: result[44].net_total
-        });
-        Data.push({
-            name: result[45].s_key,
-            value: result[45].net_total
-        });
-        Data.push({
-            name: result[46].s_key,
-            value: result[46].net_total
-        });
-        Data.push({
-            name: result[47].s_key,
-            value: result[47].net_total
-        });
-        res.render('graph5Electro', { graphData: Data});
-    }
-    );
-    }
+			Data.push({
+				name: result[38].s_key,
+				value: result[38].net_total,
+			});
+			Data.push({
+				name: result[39].s_key,
+				value: result[39].net_total,
+			});
+			Data.push({
+				name: result[40].s_key,
+				value: result[40].net_total,
+			});
+			Data.push({
+				name: result[41].s_key,
+				value: result[41].net_total,
+			});
+			Data.push({
+				name: result[42].s_key,
+				value: result[42].net_total,
+			});
+			Data.push({
+				name: result[43].s_key,
+				value: result[43].net_total,
+			});
+			Data.push({
+				name: result[44].s_key,
+				value: result[44].net_total,
+			});
+			Data.push({
+				name: result[45].s_key,
+				value: result[45].net_total,
+			});
+			Data.push({
+				name: result[46].s_key,
+				value: result[46].net_total,
+			});
+			Data.push({
+				name: result[47].s_key,
+				value: result[47].net_total,
+			});
+			res.render("graph5Electro", { graphData: Data });
+		});
+	}
 };
 
-GraphController.getGraphsdiagram6 = function(req, res) {
-    if(req.body.company == "krackentech"){
-        console.log("krackentech");
+GraphController.getGraphsdiagram6 = function (req, res) {
+	if (req.body.company == "KrakenTech") {
+		console.log("KrakenTech");
 
-        const connectionString = 'server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+		const connectionString =
+			"server=.;Database=KrakenTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-        const queryy = `
-        SELECT top 17 *
-FROM dbo.facts
-`;
+		const queryy = `SELECT top 17 * FROM dbo.facts`;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data =  result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = result.map((row) => ({
+				name: row.s_key,
+				value: row.net_total,
+			}));
 
-        res.render('newgraph6', { graphData: Data});
-    }
-    );
-    }
-    else{
-        console.log("eletrotech");
-        const connectionString = 'server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};';
+			res.render("newgraph6", { graphData: Data });
+		});
+	} else {
+		console.log("eletrotech");
+		const connectionString =
+			"server=.;Database=ElectroTech_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};";
 
-        const queryy = `
-        SELECT top 17 *
-FROM dbo.facts
-`;
+		const queryy = `SELECT top 17 * FROM dbo.facts`;
 
-sql.query(connectionString, queryy, (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-        const Data =  result.map(row => ({
-        name: row.s_key,
-        value: row.net_total
-        }));
+		sql.query(connectionString, queryy, (err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			const Data = result.map((row) => ({
+				name: row.s_key,
+				value: row.net_total,
+			}));
 
-        res.render('newgraph6', { graphData: Data});
-    }
-    );
-    }
+			res.render("newgraph6", { graphData: Data });
+		});
+	}
 };
+
+GraphController.getGraphsdiagram1Time = function(req, res) {
+
+	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
+
+	let query = "SELECT * FROM facts AS f WHERE f.s_key LIKE '%SUPPLIER' AND f.s_key LIKE '2023;" + req.body.trimester;
+	if (req.body.month != null) { query = query.concat(req.body.month); }
+	query = query.concat("|%");
+
+	sql.query(connectionString, query, (err, result) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		const Data = result.map((row) => ({
+			name: row.s_key,
+			value: row.net_total,
+		}));
+
+		res.render("newgraph6", { graphData: Data });
+	});
+}
+
+GraphController.getGraphsdiagram5Time = function(req, res) {
+
+	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
+
+	let query = "SELECT * FROM facts AS f WHERE f.s_key LIKE '%SUPPLIER' AND f.s_key LIKE '2023;" + req.body.trimester;
+	if (req.body.month != null) { query = query.concat(";" + req.body.month); }
+	query = query.concat("|%'");
+
+	sql.query(connectionString, query, (err, result) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		const Data = result.map((row) => ({
+			name: row.s_key,
+			value: row.net_total,
+		}));
+
+		res.render("newgraph6", { graphData: Data });
+	});
+}
 
 module.exports = GraphController;
