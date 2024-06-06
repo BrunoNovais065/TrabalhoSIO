@@ -19,25 +19,30 @@ con.connect(function(err) {
 });*/
 
 GraphController.getGraphsdiagram5 = function (req, res) {
-
-	console.log("entrou");
-	console.log(req.body);
-
 	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
-	let query = `SELECT * FROM facts AS f `
-	if (req.body.country != 'null') {
-		query = query.concat(`WHERE f.s_key LIKE '%${req.body.country}%'`);
-		if (req.body.city != 'null') { query = query.concat(`AND f.s_key LIKE '%${req.body.city}%' `); }
+	let query = '';
+	if (req.body.country == 'null' && req.body.trim == 'null') {
+		query = 'SELECT f.s_key, f.net_total FROM facts AS f, dim_places AS p WHERE f.s_key = p.s_key';
 	} else {
-		query = query.concat(`WHERE (f.s_key LIKE '%Portugal%' OR f.s_key LIKE '%Espanha%') `);
+		query = 'SELECT * FROM facts AS f WHERE ';
+
+		let t_query = '';
+		if (req.body.trim != 'null') {
+			t_query = `f.s_key LIKE '2023;${req.body.trim}`;
+			if (req.body.month != 'null') { t_query = t_query.concat(";" + req.body.month + "|"); }
+			query = query.concat(t_query + '|%\' ');
+		}
+
+		let p_query = ''; if (req.body.trim != 'null') { p_query = ' AND '; }
+		if (req.body.country != 'null') {
+			p_query = p_query.concat(`f.s_key LIKE '%|${req.body.country}`);
+			if (req.body.city != 'null') { p_query = p_query.concat(`;${req.body.city}`); }
+			query = query.concat(p_query + '\'');
+		} else {
+			query = query.concat(`AND (f.s_key LIKE '%|Portugal' OR f.s_key LIKE '%|Espanha')`);
+		}
 	}
-	if (req.body.trim != 'null') {
-		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trim}`);
-		if (req.body.month != 'null') { query = query.concat(";" + req.body.month); }
-		query = query.concat("|%'");
-	}
-	console.log(query)
 
 	sql.query(connectionString, query, (err, result) => {
 		if (err) {
