@@ -54,126 +54,42 @@
       <button class="btn btn-primary mb-3" onclick="goBack()">Back</button>
       <div class="dropdowns">
         <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton2"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Trim
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <li>
-              <a class="dropdown-item" href="directory5/Q1/aquiEmpresa">Q1</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/Q2/aquiEmpresa">Q2</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/Q3/aquiEmpresa">Q3</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/Q4/aquiEmpresa">Q4</a>
-            </li>
-          </ul>
+          <select class="form-select" id="trimSelect">
+            <option selected value="Trim">Trim</option>
+            <option value="Q1">Q1</option>
+            <option value="Q2">Q2</option>
+            <option value="Q3">Q3</option>
+            <option value="Q4">Q4</option>
+          </select>
         </div>
         <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton3"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Month
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-            <li>
-              <a class="dropdown-item" href="directory5/January/aquiEmpresa"
-                >January</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/February/aquiEmpresa"
-                >February</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/March/aquiEmpresa"
-                >March</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/April/aquiEmpresa"
-                >April</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/May/aquiEmpresa">May</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/June/aquiEmpresa"
-                >June</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/July/aquiEmpresa"
-                >July</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/August/aquiEmpresa"
-                >August</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/September/aquiEmpresa"
-                >September</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/October/aquiEmpresa"
-                >October</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/November/aquiEmpresa"
-                >November</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/December/aquiEmpresa"
-                >December</a
-              >
-            </li>
-            <!-- Add other months here -->
-          </ul>
+          <select class="form-select" id="monthSelect">
+            <option selected value="Month">Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
         </div>
-        <div class="dropdown" id="countryDropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton4"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Country
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-            <li>
-              <a class="dropdown-item" href="directory5/Portugal/aquiEmpresa"
-                >Portugal</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="directory5/Espanha/aquiEmpresa"
-                >Espanha</a
-              >
-            </li>
+        <div class="dropdown">
+          <select class="form-select" id="countrySelect">
+            <option selected value="Country">Country</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Espanha">Espanha</option>
             <!-- Add other countries here -->
-          </ul>
+          </select>
         </div>
+        <button class="btn btn-primary" onclick="applyFilters()">
+          Apply Filters
+        </button>
         <button class="btn btn-danger" onclick="removeFilters()">
           Remove Filters
         </button>
@@ -200,21 +116,57 @@
       </div>
     </div>
 
+    <!-- Hidden Form -->
+    <form
+      id="filterForm"
+      action="/directory5"
+      method="post"
+      style="display: none"
+    >
+      <input type="hidden" name="month" id="formMonth" />
+      <input type="hidden" name="country" id="formCountry" />
+      <input type="hidden" name="trim" id="formTrim" />
+    </form>
+
     <script>
+      function applyFilters() {
+        const monthSelect = document.getElementById("monthSelect");
+        const countrySelect = document.getElementById("countrySelect");
+        const month = monthSelect.value;
+        const country = countrySelect.value;
+
+        if (month !== "Month" || country !== "Country" || trim !== "Trim") {
+          if (month !== "Month") {
+            formMonth.value = month;
+          } else {
+            formMonth.value = "null";
+          }
+          if (country !== "Country") {
+            formCountry.value = country;
+          } else {
+            formCountry.value = "null";
+          }
+          if (trim !== "Trim") {
+            formTrim.value = trim;
+          } else {
+            formTrim.value = "null";
+          }
+          document.getElementById("filterForm").submit();
+        } else {
+          alert("Please select a month or a country.");
+        }
+      }
+
       function goBack() {
         window.location.href = "/";
       }
 
       function removeFilters() {
         // Logic to reset the filters
-        document.getElementById("dropdownMenuButton2").textContent = "Trim";
-        document.getElementById("dropdownMenuButton3").textContent = "Month";
-        document.getElementById("dropdownMenuButton4").textContent = "Country";
+        document.getElementById("trimSelect").value = "Trim";
+        document.getElementById("monthSelect").value = "Month";
+        document.getElementById("countrySelect").value = "Country";
         // Add any additional logic needed to reset the charts or reload data
-        //set to the href of the page witch is directory5 make it post to the server
-
-        //aqui adicionar o dados da empresa que é
-        //TODO:
         window.location.href = "/directory5";
       }
 
@@ -223,7 +175,9 @@
       if (pais === "Eletrotech") {
         document.getElementById("countryDropdown").style.display = "block";
       }
+    </script>
 
+    <script>
       // Pie Chart
       const pieCtx = document.getElementById("pieChart").getContext("2d");
       const pieChart = new Chart(pieCtx, {
@@ -274,6 +228,7 @@
         },
       });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   </body>

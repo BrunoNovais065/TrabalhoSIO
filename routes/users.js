@@ -35,8 +35,8 @@ router.post('/directory3', GraphController.getGraphsdiagram3);
 
 router.post('/directory4', GraphController.getGraphsdiagram4);
 
-router.post('/directory5', GraphController.getGraphsdiagram5);
-
+//router.post('/directory5', GraphController.getGraphsdiagram5);
+router.post('/directory5',GraphController.getGraphsdiagram5);
 router.post('/directory6', GraphController.getGraphsdiagram6);
 
 

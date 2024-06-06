@@ -542,15 +542,19 @@
         </div>
         <div class="col-md-4">
           <div class="box bg-white">
-            <form action="/directory5" method="POST">
+            <form action="/directory5" method="POST" id="form">
               <span>Distritos em Alta</span>
               <select name="company" id="company" class="form-control">
                 <option value="KrakenTech" selected>KrakenTech</option>
                 <option value="ElectroTech">ElectroTech</option>
                 <!-- Add more company options as needed -->
               </select>
+              <input type="hidden" name="month" id="formMonth" value="null" />
+                <input type="hidden" name="country" id="formCountry" value="null"/>
+                <input type="hidden" name="trim" id="formTrim" value="null"/>
+                <input type="hidden" name="city" id="formCity" value="null"/>
               <div class="voltage-button">
-                <button type="submit">View</button>
+                <button type="submit" onclick="sendInfo()">View</button>
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -693,6 +697,16 @@
       function goToYearDirectory() {
         var selectedYear = document.getElementById("yearSelect").value;
         window.location.href = "/otheryear" + selectedYear;
+      }
+
+      function sendInfo(){
+
+        document.getElementById("formMonth").value = "null";
+    document.getElementById("formCountry").value = "null";
+    document.getElementById("formTrim").value = "null";
+    document.getElementById("formCity").value = "null";
+    // Submit the form after clearing the hidden fields
+    document.getElementById("form").submit();
       }
     </script>
   </body>

@@ -20,12 +20,15 @@ con.connect(function(err) {
 
 GraphController.getGraphsdiagram5 = function (req, res) {
 
+	console.log("entrou");
+	console.log(req.body);
+
 	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
 	let query = `SELECT * FROM facts AS f WHERE f.s_key LIKE '%${req.body.country}% '`
 	if (req.body.city != null) { query = query.concat(`AND f.s_key LIKE '%${req.body.city}%' `); }
-	if (req.body.trimester != null) {
-		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trimester}`);
+	if (req.body.trim != null) {
+		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trim}`);
 		if (req.body.month != null) { query = query.concat(";" + req.body.month); }
 		query = query.concat("|%'");
 	}
@@ -39,11 +42,9 @@ GraphController.getGraphsdiagram5 = function (req, res) {
 			name: row.s_key,
 			value: row.net_total,
 		}));
-
-		res.render("newgraph6", { graphData: Data });
+			console.log(Data);
+		res.render("newgraph5", { graphData: Data });
 	});
-	
-	res.render("index", { title: "Express", year: "2023" });
 };
 
 GraphController.getGraphsdiagram1 = function (req, res) {
@@ -237,6 +238,7 @@ ORDER BY CAST(SUBSTRING(s_key, 5, CHARINDEX(';', s_key) - 5) AS INT);
 	}
 };
 
+/**
 GraphController.getGraphsdiagram5 = function (req, res) {
 	if (req.body.company == "KrakenTech") {
 		console.log("KrakenTech");
@@ -342,6 +344,7 @@ FROM dbo.facts
 		});
 	}
 };
+*/
 
 GraphController.getGraphsdiagram6 = function (req, res) {
 	if (req.body.company == "KrakenTech") {
@@ -413,7 +416,7 @@ GraphController.getGraphsdiagram5Time = function(req, res) {
 	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
 	let query = "SELECT * FROM facts AS f WHERE f.s_key LIKE '%SUPPLIER' AND f.s_key LIKE '2023;" + req.body.trimester;
-	if (req.body.month != null) { query = query.concat(";" + req.body.month); }
+	if (req.body.formMonth != null) { query = query.concat(";" + req.body.formMonth); }
 	query = query.concat("|%'");
 
 	sql.query(connectionString, query, (err, result) => {
@@ -426,7 +429,9 @@ GraphController.getGraphsdiagram5Time = function(req, res) {
 			value: row.net_total,
 		}));
 
-		res.render("newgraph6", { graphData: Data });
+		console.log(Data);
+
+		res.render("newgraph5", { graphData: Data });
 	});
 }
 
