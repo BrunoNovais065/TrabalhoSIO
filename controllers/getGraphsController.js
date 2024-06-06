@@ -25,13 +25,19 @@ GraphController.getGraphsdiagram5 = function (req, res) {
 
 	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
-	let query = `SELECT * FROM facts AS f WHERE f.s_key LIKE '%${req.body.country}% '`
-	if (req.body.city != null) { query = query.concat(`AND f.s_key LIKE '%${req.body.city}%' `); }
-	if (req.body.trim != null) {
+	let query = `SELECT * FROM facts AS f `
+	if (req.body.country != 'null') {
+		query = query.concat(`WHERE f.s_key LIKE '%${req.body.country}%'`);
+		if (req.body.city != 'null') { query = query.concat(`AND f.s_key LIKE '%${req.body.city}%' `); }
+	} else {
+		query = query.concat(`WHERE (f.s_key LIKE '%Portugal%' OR f.s_key LIKE '%Espanha%') `);
+	}
+	if (req.body.trim != 'null') {
 		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trim}`);
-		if (req.body.month != null) { query = query.concat(";" + req.body.month); }
+		if (req.body.month != 'null') { query = query.concat(";" + req.body.month); }
 		query = query.concat("|%'");
 	}
+	console.log(query)
 
 	sql.query(connectionString, query, (err, result) => {
 		if (err) {
@@ -119,9 +125,9 @@ GraphController.getGraphsdiagram2 = function (req, res) {
 		`server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
 	const query = `SELECT * FROM dbo.facts WHERE s_key LIKE '%Fornecedor%' `;
-	if (req.body.trimester != null) {
+	if (req.body.trimester != 'null') {
 		query = query.concat(`AND f.s_key LIKE '2023;${req.body.trimester}`);
-		if (req.body.month != null) { query = query.concat(";" + req.body.month); }
+		if (req.body.month != 'null') { query = query.concat(";" + req.body.month); }
 		query = query.concat("|%'");
 	}
 
@@ -394,7 +400,7 @@ GraphController.getGraphsdiagram1Time = function(req, res) {
 	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
 	let query = "SELECT * FROM facts AS f WHERE f.s_key LIKE '%SUPPLIER' AND f.s_key LIKE '2023;" + req.body.trimester;
-	if (req.body.month != null) { query = query.concat(req.body.month); }
+	if (req.body.month != 'null') { query = query.concat(req.body.month); }
 	query = query.concat("|%");
 
 	sql.query(connectionString, query, (err, result) => {
@@ -416,7 +422,7 @@ GraphController.getGraphsdiagram5Time = function(req, res) {
 	const connectionString = `server=.;Database=${req.body.company}_Warehouse;Trusted_Connection=Yes;Driver={ODBC Driver 17 for SQL Server};`;
 
 	let query = "SELECT * FROM facts AS f WHERE f.s_key LIKE '%SUPPLIER' AND f.s_key LIKE '2023;" + req.body.trimester;
-	if (req.body.formMonth != null) { query = query.concat(";" + req.body.formMonth); }
+	if (req.body.formMonth != 'null') { query = query.concat(";" + req.body.formMonth); }
 	query = query.concat("|%'");
 
 	sql.query(connectionString, query, (err, result) => {
